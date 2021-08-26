@@ -1,0 +1,1 @@
+print('Ergebnis in Variable Argumentliste')

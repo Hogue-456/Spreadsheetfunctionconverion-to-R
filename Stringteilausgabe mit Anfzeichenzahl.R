@@ -1,0 +1,25 @@
+source('~/Tabellenkalkultionsumwandler/Zeichenauflister.R', encoding = 'UTF-8')
+Query1 <- nrow(sqldf(" SELECT Substr, Nummer FROM Join2 WHERE Substr IN('\"') ")) 
+Programme <- c('~/Tabellenkalkultionsumwandler/Anfzeichen.R','~/Tabellenkalkultionsumwandler/Keine Anfzeichen.R') 
+Programmwahl <- data.frame(Programme) 
+Programmwahl$Nummer <- c(1, 0) 
+Queryanzahl <- data.frame(Query1) 
+Anzahl <- sqldf(" SELECT Query1 FROM Queryanzahl WHERE Query1 > 0 ") 
+Query1 <- nrow(Anzahl) 
+Queryergebnis <- paste0('SELECT Programme FROM Programmwahl WHERE Nummer =',Query1) 
+Queryres <- sqldf(Queryergebnis) 
+Programmergebnis <- Queryres$Programme 
+source(Programmergebnis) 
+Anfzeichen <- sqldf(" SELECT Prt16 FROM Sort4 ")
+Anfzeichen <- Anfzeichen$Prt16
+Join2$Anfzeichen <- Anfzeichen
+Entscheidungsanzahl5 <- nrow(sqldf(" SELECT * FROM Join2 WHERE Substr IN('&','+','-','*','/','(',')') AND Anfzeichen IN(0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40) "))
+Entscheidungsanzahl5 <- data.frame(Entscheidungsanzahl5)
+Decision <- nrow(sqldf(" SELECT * FROM Entscheidungsanzahl5 WHERE Entscheidungsanzahl5 > 0 "))
+Programs <- c('~/Tabellenkalkultionsumwandler/Alternativextrakt.R','~/Tabellenkalkultionsumwandler/Alternativzellartermittler.R')
+Numbers <- c(1, 0)
+List <- data.frame(Programs, Numbers)
+Querytext <- paste0('SELECT Programs FROM List WHERE Numbers =',Decision)
+Query <- sqldf(Querytext)
+Sourcecode <- Query$Programs
+source(Sourcecode, encoding = 'UTF-8' )
