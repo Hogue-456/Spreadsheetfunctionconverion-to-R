@@ -1,0 +1,5 @@
+source('~/Tabellenkalkultionsumwandler/Wennersteller.R', encoding = 'UTF-8')
+print('Erstargumentliste in Argumentlistenbackup300621')
+source('~/Tabellenkalkultionsumwandler/Programmstart/Progrelermittler.R', encoding = 'UTF-8')
+source('~/Tabellenkalkultionsumwandler/Zuordvariablenteilewennfunktion.R', encoding = 'UTF-8')
+source('~/Tabellenkalkultionsumwandler/Progausgabenvorbereitung.R', encoding = 'UTF-8')
