@@ -1,0 +1,1 @@
+Das ist der Hauptordner für das Programm zum Umwandeln von Tabellenkalkulationsfunktionen in Quelltext in R.
