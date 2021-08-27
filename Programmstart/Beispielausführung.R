@@ -1,0 +1,13 @@
+source('~/Tabellenkalkultionsumwandler/Zweitebenverarbeitung.R', encoding = 'UTF-8')
+source('~/Tabellenkalkultionsumwandler/Programmstart/Progrelermittler.R', encoding = 'UTF-8')
+Argumentlistenbackup300621 <- Argumentliste
+source('~/Tabellenkalkultionsumwandler/Operandenfunktion.R', encoding = 'UTF-8')
+source('~/Tabellenkalkultionsumwandler/Substrersteller.R', encoding = 'UTF-8')
+source('~/Tabellenkalkultionsumwandler/Wennersteller.R')
+print('Erstargumentliste in Argumentlistenbackup300621')
+source('~/Tabellenkalkultionsumwandler/Programmstart/Progrelermittler.R', encoding = 'UTF-8')
+source('~/Tabellenkalkultionsumwandler/Zuordvariablenteilewennfunktion.R')
+source('~/Tabellenkalkultionsumwandler/Progausgabenvorbereitung.R')
+source('~/Tabellenkalkultionsumwandler/Wennfunktionerstellerschleife.R')
+Gesamtfunktionsuebersicht <- sqldf(" SELECT Nummer, Pos, Res FROM Argumentlistenbackup300621 WHERE Nummer = 1 GROUP BY Pos ")
+print('Liste der Funktionsart in Gesamtfunktionsuebersicht')
